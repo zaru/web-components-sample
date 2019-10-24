@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+    p {
+      color: blue;
+      font-size: 24px;
+    }
+    div::part(overridable) {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+<p>normal paragraph</p>
+<script>
+  const shadowDiv = document.createElement('div')
+  const shadowRoot = shadowDiv.attachShadow({ mode: 'open' })
+  shadowRoot.innerHTML = `
+    <style type="text/css">
+      p {
+        color: red;
+      }
+    </style>
+    <p>shadow paragraph</p>
+    <p part="overridable">shadow overridable paragraph</p>
+  `
+  document.body.appendChild(shadowDiv)
+</script>
+</body>
+</html>
