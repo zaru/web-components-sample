@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<button is="my-button">ボタン1</button>
+<script>
+  class MyButton extends HTMLButtonElement {
+    constructor () {
+      super()
+      this.innerHTML = `<b>${this.textContent}</b>`
+      this.addEventListener('click', (e) => { console.log(e) })
+    }
+  }
+
+  customElements.define('my-button', MyButton, { extends: 'button' });
+</script>
+</body>
+</html>
